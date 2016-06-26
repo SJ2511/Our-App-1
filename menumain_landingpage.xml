@@ -1,0 +1,25 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.dell.intents.LandingPageActivity" android:layout_height="match_parent"
+    android:layout_width="wrap_content">
+<item
+    android:id="@+id/action1"
+    android:orderInCategory="100"
+    android:title="Search"
+    android:showAsAction="never" />
+
+<item
+android:id="@+id/action2"
+
+android:orderInCategory="100"
+android:title="Filter-By"
+android:showAsAction="never" />
+
+<item
+android:id="@+id/action3"
+android:orderInCategory="100"
+android:title="Snip"
+android:showAsAction="never" />
+    </menu>
