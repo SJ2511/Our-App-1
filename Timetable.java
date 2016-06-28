@@ -5,28 +5,38 @@ package com.example.dell.intents;
  */
 public class Timetable {
 
-    private String course,type,faculty,venue, time,tvariable;
+    private String course,type,faculty,venue, fromtime,totime;
     public Timetable()
     {
 
     }
-    public Timetable(String course, String type, String faculty,String venue,String time)
+    public Timetable(String course, String type, String faculty,String venue,String fromtime,String totime)
     {
         this.course=course;
         this.type=type;
         this.venue=venue;
         this.faculty=faculty;
-        this.time= time;
+        this.fromtime= fromtime;
 
     }
 
-    public String getTime() {
-        return time;
+    public String getFromtime() {
+        return fromtime;
     }
 
-    public void setTime(String time) {
-        this.time= time;
+    public void setFromtime(String fromtime) {
+        this.fromtime = fromtime;
     }
+
+    public String getTotime() {
+        return totime;
+    }
+
+    public void setTotime(String totime) {
+        this.totime = totime;
+    }
+
+
 
     public String getCourse() {
         return course;

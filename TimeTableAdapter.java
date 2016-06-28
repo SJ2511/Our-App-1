@@ -1,9 +1,18 @@
 package com.example.dell.intents;
+import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import org.joda.time.LocalTime;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.DateTimeFormatterBuilder;
 
 import java.util.List;
 
@@ -13,9 +22,11 @@ import java.util.List;
  */
 public class TimeTableAdapter extends RecyclerView.Adapter<TimeTableAdapter.MyViewHolder>
 {
+    private  Context context;
     private List<Timetable> timetableList;
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView course, type, faculty, venue, time;
+        public TextView course, type, faculty, venue, fromtime,totime;
+        public CardView cardView;
 
 
         public MyViewHolder(View itemView) {
@@ -24,12 +35,15 @@ public class TimeTableAdapter extends RecyclerView.Adapter<TimeTableAdapter.MyVi
             type= (TextView) itemView.findViewById(R.id.type);
             faculty= (TextView) itemView.findViewById(R.id.faculty);
             venue= (TextView) itemView.findViewById(R.id.venue);
-            time= (TextView) itemView.findViewById(R.id.time);
+            fromtime= (TextView) itemView.findViewById(R.id.fromtime);
+            totime=(TextView) itemView.findViewById(R.id.totime);
+            cardView = (CardView)itemView.findViewById(R.id.card_view);
         }
     }
-    public TimeTableAdapter(List<Timetable> timetableList)
+    public TimeTableAdapter(Context context, List<Timetable> timetableList)
     {
         this.timetableList= timetableList;
+        this.context = context;
     }
 
     @Override
@@ -48,11 +62,40 @@ public class TimeTableAdapter extends RecyclerView.Adapter<TimeTableAdapter.MyVi
         holder.type.setText(timetable.getType());
         holder.faculty.setText(timetable.getFaculty());
         holder.venue.setText(timetable.getVenue());
-        holder.time.setText(timetable.getTime());
+        holder.fromtime.setText(timetable.getFromtime());
+        holder.totime.setText(timetable.getTotime());
+
+        //int toTime =Integer.parseInt(timetable.getFromtime().substring(0,1));
+        DateTimeFormatter parseFormat = new DateTimeFormatterBuilder().appendPattern("h a").toFormatter();
+        LocalTime localTime = LocalTime.parse(timetable.getFromtime(), parseFormat);
+        DateTimeFormatter outputFormat = new DateTimeFormatterBuilder().appendPattern("H").toFormatter();
+        int toTime = Integer.parseInt(localTime.toString(outputFormat));
+
+        Log.d("Time", timetable.getFromtime() + " int" + String.valueOf(toTime));
+
+        holder.cardView.setCardBackgroundColor(getColorAccTime(toTime));
     }
 
     @Override
     public int getItemCount() {
         return timetableList.size();
+    }
+
+    public int getColorAccTime(int time)
+    {
+        int color = 0;
+        if(time<12)
+        {
+            color=  context.getResources().getColor(R.color.colorAccent);
+        }
+        else if(time>12&&time<17) {
+            color=  context.getResources().getColor(R.color.colorPrimary);
+        }
+        else if(time>17)
+        {
+            color=  context.getResources().getColor(R.color.colorname1);
+        }
+
+    return color;
     }
 }

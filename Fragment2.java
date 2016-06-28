@@ -29,7 +29,8 @@ import android.content.Context;
         import android.view.View;
         import android.view.ViewGroup;
 
-
+import com.example.dell.intents.TimeTableAdapter;
+import com.example.dell.intents.Timetable;
 
 
 public class Fragment2 extends Fragment {
@@ -45,7 +46,7 @@ public class Fragment2 extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment2, container, false);
 
         recyclerView= (RecyclerView) rootView.findViewById(R.id.recycler_view);
-        tadapter = new TimeTableAdapter(timetableList);
+        tadapter = new TimeTableAdapter(getActivity(),timetableList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -58,28 +59,28 @@ public class Fragment2 extends Fragment {
 
     private void prepareTimeTableData()
     {
-        Timetable event = new Timetable("MTL100", "lecture", "MR. Ritumoni", "LH108", "8 am to 9 am");
+        Timetable event = new Timetable("MTL100", "lecture", "MR. Ritumoni", "LH108", "8 AM"," 9 AM");
         timetableList.add(event);
 
-        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "MR. Msa", "LH111","9 am to 10 am");
+        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "MR. Msa", "LH111","9 AM" , "10 AM");
         timetableList.add(event);
 
-        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "2r5", "yyyy", "11 am to 12noon");
+        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "2r5", "yyyy", "11 AM", "12 PM");
         timetableList.add(event);
 
-        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "e15", "yyyy","12pm tp 1 pm");
+        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "e15", "yyyy","12 PM" ," 1 PM");
         timetableList.add(event);
 
-        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "e15", "yyyy", "2 pm to 3 pm");
+        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "e15", "yyyy", "2 PM","3 PM");
         timetableList.add(event);
 
-        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "2w", "yyyy","3pm to 4 pm");
+        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "2w", "yyyy","3 PM"," 4 PM");
         timetableList.add(event);
 
-        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "q5", "yyyy","4 pm to 5 pm");
+        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "q5", "yyyy","4 PM","5 PM");
         timetableList.add(event);
 
-        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "v5", "yyyy", "7 pm to 8 pm");
+        event = new Timetable("Mad Max: Fury Road", "Action & Adventure", "v5", "yyyy", "7 PM","8 PM");
         timetableList.add(event);
 
         tadapter.notifyDataSetChanged();
