@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/totime"
-                android:layout_below="@+id/venue"
+                android:layout_below="@+id/fromtime"
                 android:textStyle="bold"
 
                 />

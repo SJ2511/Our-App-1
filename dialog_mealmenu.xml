@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    android:src="@drawable/drink_2_icon"
+    android:id="@+id/drink"
+    />
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/cutlery_spoon_fork_knife_icon"
+        android:layout_toRightOf="@+id/drink"
+        android:id="@+id/food"/>
+
+
+
+</RelativeLayout>
