@@ -23,7 +23,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private String CREATE_LOGIN_TABLE = "CREATE TABLE " + UtilConstants.LOGIN_TABLE_NAME + " ( " + UtilConstants.NAME + " TEXT, " +
             UtilConstants.USER_NAME + " TEXT PRIMARY KEY, " + UtilConstants.PASSWORD + " TEXT ) ";
-    private String CREATE_TIME_TABLE = "CREATE TABLE " + UtilConstants.TIME_TABLE_NAME + " ( " + UtilConstants.DATE + " DATE, " + UtilConstants.COURSE + " TEXT, " + UtilConstants.TYPE + " TEXT, " + UtilConstants.FROMTIME + " TEXT, " + UtilConstants.TOTIME+ " TEXT, "+UtilConstants.VENUE + " TEXT, " +
+    private String CREATE_TIME_TABLE = "CREATE TABLE " + UtilConstants.TIME_TABLE_NAME + " ( " + UtilConstants.DAY + " TEXT, " + UtilConstants.COURSE + " TEXT, " + UtilConstants.TYPE + " TEXT, " + UtilConstants.FROMTIME + " TEXT, " +
+            UtilConstants.TOTIME + " TEXT, " + UtilConstants.VENUE + " TEXT, " + UtilConstants.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             UtilConstants.PROFESSOR + " TEXT ) ";
 
     public DatabaseHandler(Context context) {

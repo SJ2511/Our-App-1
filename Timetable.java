@@ -5,18 +5,19 @@ package com.example.dell.intents;
  */
 public class Timetable {
 
-    private String course,type,faculty,venue, fromtime,totime;
+    private String course,type,day,faculty,venue, fromtime,totime;
     public Timetable()
     {
 
     }
-    public Timetable(String course, String type, String faculty,String venue,String fromtime,String totime)
+    public Timetable(String course,String day, String type, String faculty,String venue,String fromtime,String totime)
     {
         this.course=course;
         this.type=type;
         this.venue=venue;
         this.faculty=faculty;
         this.fromtime= fromtime;
+        this.day=day;
 
     }
 
@@ -68,5 +69,9 @@ public class Timetable {
 
     public void setVenue(String venue) {
         this.venue = venue;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
     }
 }
