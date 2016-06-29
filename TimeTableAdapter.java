@@ -84,16 +84,16 @@ public class TimeTableAdapter extends RecyclerView.Adapter<TimeTableAdapter.MyVi
     public int getColorAccTime(int time)
     {
         int color = 0;
-        if(time<12)
+        if(time<=12)
         {
-            color=  context.getResources().getColor(R.color.colorAccent);
+            color=  context.getResources().getColor(R.color.snuff);
         }
         else if(time>12&&time<17) {
-            color=  context.getResources().getColor(R.color.colorPrimary);
+            color=  context.getResources().getColor(R.color.mediumpurple);
         }
         else if(time>17)
         {
-            color=  context.getResources().getColor(R.color.colorname1);
+            color=  context.getResources().getColor(R.color.spray);
         }
 
     return color;

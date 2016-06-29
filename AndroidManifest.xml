@@ -18,14 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".NewHere"
             android:label="@string/title_activity_new_here"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".LandingPageActivity"
             android:label="@string/title_activity_landing_page_activity"
@@ -38,9 +34,49 @@
         </activity>
 
 
+        <activity
+            android:name="com.example.dell.intents.NEWnotes"
+            android:label="@string/title_activity_newnotes"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="com.example.dell.intents.NEWevent" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
+        <activity
+            android:name="com.example.dell.intents.NEWevent"
+            android:label="@string/title_activity_newevent"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.example.dell.intents.NEWevent" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
+        <activity
+            android:name="com.example.dell.intents.NEWtimetableentry"
+            android:label="@string/title_activity_newtimetableentry"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.example.dell.intents.NEWevent" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
+        <activity
+            android:name="com.example.dell.intents.NEWmenuentry"
+            android:label="@string/title_activity_newmenuentry"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.example.dell.intents.NEWevent" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Onclick_Cardview"
+            android:label="@string/title_activity_onclick__cardview"
+        android:theme= "@style/Theme.AppCompat.Dialog"></activity>
     </application>
 
 </manifest>
