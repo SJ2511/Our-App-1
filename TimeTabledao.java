@@ -10,8 +10,7 @@ import java.util.List;
 /**
  * Created by DELL on 6/29/2016.
  */
-public class TimeTabledao
-{
+public class TimeTabledao {
     SQLiteDatabase db = null;
 
     public void addRecords(Context context) {
@@ -32,10 +31,10 @@ public class TimeTabledao
         Timetable timetable = null;
         DatabaseHandler databaseHandler = new DatabaseHandler(context);
         db = databaseHandler.getReadableDatabase();
-        String query = " select "  + UtilConstants.DAY + " , " +UtilConstants.COURSE + " , " +UtilConstants.TYPE + " , " +UtilConstants.VENUE+ " , "
-                +UtilConstants.PROFESSOR+ " , " +UtilConstants.FROMTIME+ " , " + UtilConstants.TOTIME +" from " + UtilConstants.TIME_TABLE_NAME;
+        String query = " select " + UtilConstants.DAY + " , " + UtilConstants.COURSE + " , " + UtilConstants.TYPE + " , " + UtilConstants.VENUE + " , "
+                + UtilConstants.PROFESSOR + " , " + UtilConstants.FROMTIME + " , " + UtilConstants.TOTIME + " , " + UtilConstants.ID + " from " + UtilConstants.TIME_TABLE_NAME;
 
-      Cursor cursor= db.rawQuery(query, new String[]{});
+        Cursor cursor = db.rawQuery(query, new String[]{});
 
 
         if (cursor.moveToFirst()) {
@@ -48,6 +47,7 @@ public class TimeTabledao
                 timetable.setVenue(cursor.getString(3));
                 timetable.setFaculty(cursor.getString(4));
                 timetable.setTotime(cursor.getString(6));
+                timetable.setId(cursor.getInt(7));
 
 
                 timetableList.add(timetable);
@@ -58,6 +58,16 @@ public class TimeTabledao
         return timetableList;
 
 
+    }
 
+    public void deleteRecords(Context context, int id) {
+        DatabaseHandler databaseHandler = new DatabaseHandler(context);
+        db = databaseHandler.getReadableDatabase();
+        db.beginTransaction();
+        String query = " delete " + " from " + UtilConstants.TIME_TABLE_NAME + " where " + UtilConstants.ID + " = " + id;
+        db.execSQL(query);
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        db.close();
     }
 }

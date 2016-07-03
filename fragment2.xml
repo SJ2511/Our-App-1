@@ -1,24 +1,72 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
 
     tools:context="com.example.dell.intents.LandingPageActivity">
-<android.support.v7.widget.RecyclerView
-    android:id="@+id/recycler_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:scrollbars="vertical"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
 
-    />
+        />
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/fab_menu2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        fab:fab_addButtonColorNormal="@color/accent"
+        fab:fab_addButtonColorPressed="@color/accent_dark"
+        fab:fab_addButtonPlusIconColor="@color/white"
+        fab:fab_addButtonStrokeVisible="false"
+        fab:fab_labelStyle="@style/menu_labels_style"
+        fab:fab_labelsPosition="left"
+        android:layout_weight="0.58"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/accent"
+            fab:fab_colorPressed="@color/accent_dark"
+            fab:fab_plusIconColor="@color/white"
+            android:onClick="Add2"
+            fab:fab_size="mini"
+            fab:fab_title="Add" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_week2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/accent"
+            fab:fab_colorPressed="@color/accent_dark"
+            android:onClick="Weekly2"
+            fab:fab_plusIconColor="@color/white"
+            fab:fab_size="mini"
+            fab:fab_title="Weekly" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_month2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/accent"
+            fab:fab_colorPressed="@color/accent_dark"
+            android:onClick="Monthly2"
+            fab:fab_plusIconColor="@color/white"
+            fab:fab_size="mini"
+            fab:fab_title="Monthly" />
 
 
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 
     <!-- TODO: Update blank fragment layout -->
 
 
-</LinearLayout>
+</RelativeLayout>

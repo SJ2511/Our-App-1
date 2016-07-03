@@ -5,20 +5,32 @@ package com.example.dell.intents;
  */
 public class Timetable {
 
-    private String course,type,day,faculty,venue, fromtime,totime;
-    public Timetable()
-    {
+    private String course, type, day, faculty, venue, fromtime, totime;
+    private boolean mChecked;
+    private boolean mActivateExpansion;
+    private int id;
+    private int position;
+
+    public Timetable() {
 
     }
-    public Timetable(String course,String day, String type, String faculty,String venue,String fromtime,String totime)
-    {
-        this.course=course;
-        this.type=type;
-        this.venue=venue;
-        this.faculty=faculty;
-        this.fromtime= fromtime;
-        this.day=day;
 
+    public Timetable(String course, String day, String type, String faculty, String venue, String fromtime, String totime) {
+        this.course = course;
+        this.type = type;
+        this.venue = venue;
+        this.faculty = faculty;
+        this.fromtime = fromtime;
+        this.day = day;
+
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public String getFromtime() {
@@ -36,7 +48,6 @@ public class Timetable {
     public void setTotime(String totime) {
         this.totime = totime;
     }
-
 
 
     public String getCourse() {
@@ -73,5 +84,30 @@ public class Timetable {
 
     public void setDay(String day) {
         this.day = day;
+    }
+
+    public boolean isChecked() {
+        return mChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        mChecked = checked;
+    }
+
+    public boolean isActivateExpansion() {
+        return mActivateExpansion;
+    }
+
+    public void setActivateExpansion(boolean activateExpansion) {
+        mActivateExpansion = activateExpansion;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+
+        return id;
     }
 }

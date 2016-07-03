@@ -27,6 +27,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             UtilConstants.TOTIME + " TEXT, " + UtilConstants.VENUE + " TEXT, " + UtilConstants.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             UtilConstants.PROFESSOR + " TEXT ) ";
 
+   /* private String CREATE_EVENT_TABLE = "CREATE TABLE " + UtilConstants.EVENT_TABLE_NAME + " ( " + UtilConstants.DATE +
+            " TEXT, " + UtilConstants.no + " INTEGER, "+UtilConstants.TITLE + " TEXT, "
+            +UtilConstants.VENUE + " TEXT, "+UtilConstants.TIME + " TEXT, "+UtilConstants.ATTENDEES
+            +UtilConstants.IMAGE + " IMAGE, "+ " TEXT, " + UtilConstants.DESCRIPTION + " TEXT ) ";*/
+
+  /*  private String CREATE_NOTE_TABLE = "CREATE TABLE " + UtilConstants.NOTES_TABLE_NAME+ " ( " + UtilConstants.DESCRIPTION_NOTE +
+            " TEXT, "+ UtilConstants.IMAGE_NOTE + " IMAGE, "+ UtilConstants.note_index+ " TEXT ) ";*/
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -41,12 +48,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         db.execSQL(CREATE_LOGIN_TABLE);
         db.execSQL(CREATE_TIME_TABLE);
+      //  db.execSQL(CREATE_EVENT_TABLE);
+        //db.execSQL(CREATE_NOTE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISIS" + CREATE_LOGIN_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS" + CREATE_LOGIN_TABLE);
         db.execSQL("DROP TABLE IF EXISTS" + CREATE_TIME_TABLE);
+        //db.execSQL("DROP TABLE IF EXISIS" + CREATE_EVENT_TABLE);
+        //db.execSQL("DROP TABLE IF EXISIS" + CREATE_NOTE_TABLE);
         onCreate(db);
     }
 
